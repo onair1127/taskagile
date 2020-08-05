@@ -38,6 +38,3 @@ out/
 
 application.properties
 application-dev.properties
-
-#!..bin/main/application.properties
-#!..src/main/resources/application.properties
