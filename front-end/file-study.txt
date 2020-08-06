@@ -1,0 +1,11 @@
+★★★★★★★★★ 파일 말고 package.json으로 하는 법도 숙지해보자. ★★★★★★★★★
+
+.browserslistrc : Babel, postcss-preset-env와 같은 라이브러리가 대상 브라우저를 정의하는데 활용
+.eslintrc.js : ESLint의 환경설정 파일
+babel.config.js : Babel 환경설정 파일
+ject.config.js : Jest 환경설정 파일
+package-lock.json : npm이 자동으로 생성, 생성된 node_modules 트리를 정확하게 나타내는데 활용
+
+node_modules 트리를 정확하게 나타내서 이후에 설치가 진행되도 같은 트리를 생성할 수 있다.
+
+postcss.config.js : PostCSS(https://postcss.org) 설정을 자동으로 적용하는데 사용
