@@ -4,8 +4,6 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
-**/src/main/resources/application.properties
-**/bin/main/application.properties
 
 ### STS ###
 .apt_generated
@@ -37,6 +35,5 @@ out/
 
 
 ### etc File ###
-
-application.properties
-application-dev.properties
+**/src/main/resources/application.properties
+**/bin/main/application.properties

@@ -25,3 +25,9 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+## etc ##
+package-lock.json
+README.md
+vue.config.js
+npm-v6.14.5
