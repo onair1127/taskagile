@@ -2,7 +2,7 @@ package com.taskagile.domain.model.common.events;
 
 import org.springframework.context.ApplicationEvent;
 
-public class DomainEvent extends ApplicationEvent {
+public abstract class DomainEvent extends ApplicationEvent {
 
      /**
      *

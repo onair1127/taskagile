@@ -1,11 +1,11 @@
 package com.taskagile.domain.model.user.events;
 
+import com.taskagile.domain.model.common.events.DomainEvent;
 import com.taskagile.domain.model.user.User;
 
-import org.springframework.context.ApplicationEvent;
 import org.springframework.util.Assert;
 
-public class UserRegisteredEvent extends ApplicationEvent {
+public class UserRegisteredEvent extends DomainEvent {
 
      private static final long serialVersionUID = -4859731169503259134L;
      private User user;
