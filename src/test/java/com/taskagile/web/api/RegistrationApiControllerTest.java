@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doThrow;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -20,9 +22,9 @@ import com.taskagile.utils.JsonUtils;
 import com.taskagile.web.apis.RegistrationApiController;
 import com.taskagile.web.payload.RegistrationPayload;
 
-
 @RunWith(SpringRunner.class)
 @WebMvcTest(RegistrationApiController.class)
+@ActiveProfiles("test")
 public class RegistrationApiControllerTest {
 
      @Autowired
@@ -56,4 +58,20 @@ public class RegistrationApiControllerTest {
                .andExpect(jsonPath("$.message").value("Username already exists"));
      }
 
+     @Test
+     public void register_validPayload_shouldSucceedAndReturn201() throws Exception {
+          RegistrationPayload payload = new RegistrationPayload();
+          payload.setUsername("username");
+          payload.setEmailAddress("onair1127@naver.com");
+          payload.setPassword("password");
+
+          doNothing().when(serviceMock)
+               .register(payload.toCommand());
+
+          mvc.perform(
+               post("/api/registrations")
+               .contentType(MediaType.APPLICATION_JSON)
+               .content(JsonUtils.toJson(payload)))
+          .andExpect(status().is(201));
+     }
 }

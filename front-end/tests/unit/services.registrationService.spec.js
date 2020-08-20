@@ -2,10 +2,10 @@
  * RegisterPage의 axios 백엔드 통신 테스트
  */
 
- import moxios from 'moxios'
- import registrationService from '@/services/registration'
+import moxios from 'moxios'
+import registrationService from '@/services/registration'
 
- describe('services/registration', () => {
+describe('services/registration', () => {
   beforeEach(() => {
     moxios.install()
   })
@@ -17,7 +17,7 @@
   it('should pass the response to caller when request succeeded', () => {
     expect.assertions(2)
     moxios.wait(() => {
-      let request = moxios.requests.mostRecent()
+      const request = moxios.requests.mostRecent()
       expect(request).toBeTruthy()
       request.respondWith({
         status: 200,
@@ -35,7 +35,7 @@
   it('should propagate the error to caller when request failed', () => {
     expect.assertions(2)
     moxios.wait(() => {
-      let request = moxios.requests.mostRecent()
+      const request = moxios.requests.mostRecent()
       expect(request).toBeTruthy()
       request.reject({
         status: 400,

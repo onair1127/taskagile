@@ -5,7 +5,9 @@ import com.taskagile.domain.model.user.events.UserRegisteredEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.event.EventListener;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserRegisteredEventPublisher {
      private static final Logger log = LoggerFactory.getLogger(UserRegisteredEvent.class);
 
